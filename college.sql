@@ -10,4 +10,7 @@ create table students(
     name varchar(100) not null
 )
 
--- create results table
+create table results(
+    score int primary key,
+    lecturer_id int not null
+)
