@@ -1,52 +1,53 @@
 
 drop database if exists college; 
 
--- create database
 create database college;
 
--- create student table
-create table students(
-first_name varchar(150),
-last_name varchar(150),
-student_id int(50),
-student_DOB varchar(50) unique,
-primary key (student_id));
+create table student(
+id int autoincrement primary key,
+firstname varchar(150),
+lastname varchar(150),
+student_id int(10),
+dob date(50)
 );
 
-create table student_courses(
+create table studentcourse(
+id int autoincrement primary key,
 course_id int(50),
 student_id int(50)
 );
 
-create table courses(
+create table course(
+id int autoincrement primary key,
 course_id int(50),
-department_name varchar(150),
 course_name varchar(150)
 );
 
 create table Lecturer(
-id int primary key,
-Lecturer_name varchar(120),
-Lecturer_id varchar(15),
-Lecturer_DOB varchar(50) unique,
-primary key(Lecturer_id));
-
-create table Lecturer_Courses(
 id int autoincrement primary key,
-Course_id varchar(50),
-Lecturer_id varchar(15)
+firstname varchar(120),
+lastname varchar(120),
+lecturer_id varchar(15),
+dob varchar(50) unique,
+contact varchar(255)
+);
+
+create table LecturerCourses(
+id int autoincrement primary key,
+course_id varchar(50),
+lecturer_id varchar(15)
 );
 
 create table Department(
 id int autoincrement primary key,
-Department_Name  varchar(23),
-primary key(Department_Name));
+department_name  varchar(255)
 );
 
 create table results(
+id int autoincrement primary key,
 score int primary key,
 lecturer_id int not null,
 student_id int not null,
-course_id
+course_id int (50) not null
 );
 
