@@ -1,53 +1,63 @@
-
 drop database if exists college; 
-
 create database college;
 
-create table student(
-id int autoincrement primary key,
-firstname varchar(150),
-lastname varchar(150),
-student_id int(10),
-dob date(50)
+use college;
+
+create table Student(
+firstname varchar(150) NOT NULL,
+lastname varchar(150) NOT NULL,
+student_id int(10) NOT NULL,
+dob date NOT NULL,
+PRIMARY KEY (student_id)
 );
 
-create table studentcourse(
-id int autoincrement primary key,
+create table Course(
 course_id int(50),
-student_id int(50)
+course_name varchar(150),
+PRIMARY KEY (course_id)
 );
 
-create table course(
-id int autoincrement primary key,
+create table StudentCourse(
 course_id int(50),
-course_name varchar(150)
+student_id int(50),
+FOREIGN KEY (course_id)
+references Course(student_id),
+FOREIGN KEY (student_id)
+references Student(student_id)
 );
 
 create table Lecturer(
-id int autoincrement primary key,
+lecturer_id varchar(15),
 firstname varchar(120),
 lastname varchar(120),
-lecturer_id varchar(15),
 dob varchar(50) unique,
-contact varchar(255)
+contact varchar(255),
+PRIMARY KEY (lecturer_id)
 );
 
 create table LecturerCourses(
-id int autoincrement primary key,
 course_id varchar(50),
-lecturer_id varchar(15)
+lecturer_id varchar(15),
+FOREIGN KEY (course_id)
+references Course(course_id),
+FOREIGN KEY (lecturer_id)
+references Lecturer(lecturer_id)
 );
 
 create table Department(
-id int autoincrement primary key,
-department_name  varchar(255)
+department_name  varchar(255),
+PRIMARY KEY (department_name)
 );
 
-create table results(
-id int autoincrement primary key,
+create table Result(
 score int primary key,
-lecturer_id int not null,
-student_id int not null,
-course_id int (50) not null
+lecturer_id int(20) not null,
+student_id int(20) not null,
+course_id int (50) not null,
+FOREIGN KEY (course_id)
+references Course(course_id),
+FOREIGN KEY (lecturer_id)
+references Lecturer(lecturer_id),
+FOREIGN KEY (course_id)
+references Student(student_id)
 );
-
