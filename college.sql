@@ -59,5 +59,5 @@ references Course(course_id),
 FOREIGN KEY (lecturer_id)
 references Lecturer(lecturer_id),
 FOREIGN KEY (course_id)
-references Student(student_id)
+references Course(course_id)
 );
