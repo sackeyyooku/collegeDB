@@ -72,6 +72,10 @@ references Course(id),
 PRIMARY KEY (id)
 );
 
+insert into Course value ("BIO444","BIOLOGY 444");
+insert into Course value ("MAT789","MATH 789");
+insert into Course value ("FRE231","FRENCH 231");
+
 insert into Lecturer value ("KO123","Kofi","Nti","1st May 1975","020120155");
 insert into Lecturer value ("NI456","Nii","Amo","3rd June 1965","02561962");
 insert into Lecturer value ("AL789","Ali","Owusu","9th August 1980","026332145");
@@ -84,3 +88,6 @@ insert into Department value ("MATH");
 insert into Department value ("PHYSICS");
 insert into Department value ("FRENCH");
 
+insert into Result value ("76","KO123","2254","BIO444");
+insert into Result value ("89","NI456","1114","MAT789");
+insert into Result value ("45","AL789","3274","FRE231");
