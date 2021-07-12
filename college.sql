@@ -70,4 +70,4 @@ references Lecturer(id),
 FOREIGN KEY (course_id)
 references Course(id),
 PRIMARY KEY (id)
-);
+); 
