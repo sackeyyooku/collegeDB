@@ -72,6 +72,7 @@ references Course(id),
 PRIMARY KEY (id)
 );
 
+<<<<<<< HEAD
 
 insert into Students value("Kwame","Asamoah","2254","11th August 1999");
 insert into Students value("Kwesi","Anah","1114","23rd May 2000");
@@ -80,19 +81,34 @@ insert into Students value("Kofi","	Boye","3274","1st March 2002");
 insert into StudentCourse value ("BIO444","2254");
 insert into StudentCourse value ("MAT789","1114");
 insert into StudentCourse value ("FRE231","3274");
+=======
+insert into Course value ("BIO444","BIOLOGY 444");
+insert into Course value ("MAT789","MATH 789");
+insert into Course value ("FRE231","FRENCH 231");
+>>>>>>> e89dbe1c595a9a3a1915416a3679e9daf629c970
 
 insert into Lecturer value ("KO123","Kofi","Nti","1st May 1975","020120155");
 insert into Lecturer value ("NI456","Nii","Amo","3rd June 1965","02561962");
 insert into Lecturer value ("AL789","Ali","Owusu","9th August 1980","026332145");
 
-insert into LecturerCourses value ("BIO444","AM452"); 
-insert into LecturerCourses value ("MAT789","ES123");
-insert into LecturerCourses value ("FRE231","OW235");
+insert into LecturerCourses value ("BIO444","KO123"); 
+insert into LecturerCourses value ("MAT789","NI456");
+insert into LecturerCourses value ("FRE231","AL789");
 
 insert into Department value ("MATH");
 insert into Department value ("PHYSICS");
 insert into Department value ("FRENCH");
 
+<<<<<<< HEAD
 
 
 
+=======
+<<<<<<< HEAD
+); 
+=======
+insert into Result value ("76","KO123","2254","BIO444");
+insert into Result value ("89","NI456","1114","MAT789");
+insert into Result value ("45","AL789","3274","FRE231");
+>>>>>>> 8c5fb39f7d489b59415c7ec815a500799cb73302
+>>>>>>> e89dbe1c595a9a3a1915416a3679e9daf629c970
