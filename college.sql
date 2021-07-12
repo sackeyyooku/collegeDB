@@ -76,11 +76,12 @@ insert into Lecturer value ("KO123","Kofi","Nti","1st May 1975","020120155");
 insert into Lecturer value ("NI456","Nii","Amo","3rd June 1965","02561962");
 insert into Lecturer value ("AL789","Ali","Owusu","9th August 1980","026332145");
 
-insert into LecturerCourses value ("BIO444","AM452"); 
-insert into LecturerCourses value ("MAT789","ES123");
-insert into LecturerCourses value ("FRE231","OW235");
+insert into LecturerCourses value ("BIO444","KO123"); 
+insert into LecturerCourses value ("MAT789","NI456");
+insert into LecturerCourses value ("FRE231","AL789");
 
 insert into Department value ("MATH");
 insert into Department value ("PHYSICS");
 insert into Department value ("FRENCH");
 
+); 
