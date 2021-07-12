@@ -14,40 +14,36 @@ PRIMARY KEY(id)
 
 create table Course(
 id int auto_increment,
-course_id varchar(255),
+course_id int (150),
 course_name varchar(150),
 PRIMARY KEY(id)
 );
 
 create table StudentCourse(
 id int auto_increment,
-course_id int(50),
-student_id int(50),
-FOREIGN KEY (course_id)
-references Course(id),
-FOREIGN KEY (student_id)
-references Student(id),
+course_id int(150),
+student_id int(10),
+FOREIGN KEY (student_id) references Student(id),
+FOREIGN KEY (course_id) references Course(id),
 PRIMARY KEY(id)
 );
 
 create table Lecturer(
 id int auto_increment,
-lecturer_id varchar(15),
-firstname varchar(120),
-lastname varchar(120),
-dob varchar(50) unique,
+lecturer_id varchar(150),
+firstname varchar(150),
+lastname varchar(150),
+dob date NOT NULL,
 contact varchar(255),
 PRIMARY KEY (id)
 );
 
-create table LecturerCourses(
+create table LecturerCourse(
 id int auto_increment,
 course_id int,
 lecturer_id int,
-FOREIGN KEY (course_id)
-references Course(id),
-FOREIGN KEY (lecturer_id)
-references Lecturer(id),
+FOREIGN KEY (course_id) references Course(id),
+FOREIGN KEY (lecturer_id) references Lecturer(id),
 PRIMARY KEY (id)
 );
 
@@ -63,52 +59,49 @@ score int,
 lecturer_id int(20),
 student_id int(20) not null,
 course_id int (50) not null,
-FOREIGN KEY (course_id)
-references Course(id),
-FOREIGN KEY (lecturer_id)
-references Lecturer(id),
-FOREIGN KEY (course_id)
-references Course(id),
+FOREIGN KEY (course_id) references Course(id),
+FOREIGN KEY (lecturer_id) references Lecturer(id),
+FOREIGN KEY (course_id) references Course(id),
 PRIMARY KEY (id)
 );
 
-insert into Course value ("BIO444","BIOLOGY 444");
-insert into Course value ("MAT789","MATH 789");
-insert into Course value ("FRE231","FRENCH 231");
+insert into Student value("1","Kwame","Asamoah","2254","1999-08-11");
+insert into Student value("2","Kwesi","Anah","1114","2000-05-23");
+insert into Student value("3","Kofi","	Boye","3274","2002-03-01");
 
-insert into Lecturer value ("KO123","Kofi","Nti","1st May 1975","020120155");
-insert into Lecturer value ("NI456","Nii","Amo","3rd June 1965","02561962");
-insert into Lecturer value ("AL789","Ali","Owusu","9th August 1980","026332145");
-
-insert into LecturerCourses value ("BIO444","KO123"); 
-insert into LecturerCourses value ("MAT789","NI456");
-insert into LecturerCourses value ("FRE231","AL789");
-
-insert into Department value ("MATH");
-insert into Department value ("PHYSICS");
-insert into Department value ("FRENCH");
-
-<<<<<<< HEAD
+insert into Course value ("1","444","BIOLOGY 444");
+insert into Course value ("2","789","MATH 789");
+insert into Course value ("3","231","FRENCH 231");
 
 
 
-=======
-<<<<<<< HEAD
-); 
-=======
-insert into Result value ("76","KO123","2254","BIO444");
-insert into Result value ("89","NI456","1114","MAT789");
-insert into Result value ("45","AL789","3274","FRE231");
->>>>>>> 8c5fb39f7d489b59415c7ec815a500799cb73302
->>>>>>> e89dbe1c595a9a3a1915416a3679e9daf629c970
+insert into Lecturer value ("1","KO123","Kofi","Nti","1975-05-01","020120155");
+insert into Lecturer value ("2","NI456","Nii","Amo","1965-06-03","02561962");
+insert into Lecturer value ("3","AL789","Ali","Owusu","1980-08-09","026332145");
 
-SELECT 
- 'Student ' || student_id ' has grade: ' || CASE 
-    WHEN score < 20 then 'F' 
+insert into StudentCourse value ("1","1","1");
+insert into StudentCourse value ("2","2","2");
+insert into StudentCourse value ("3","3","3");
+
+insert into LecturerCourse value ("1","1","1"); 
+insert into LecturerCourse value ("2","2","2");
+insert into LecturerCourse value ("3","3","3");
+
+insert into Department value ("1","MATH");
+insert into Department value ("2","PHYSICS");
+insert into Department value ("3","FRENCH");
+
+insert into Result value ("1","67","1","8939","1");
+insert into Result value ("2","89","2","5665","2");
+insert into Result value ("3","45","3","4546","3");
+
+SELECT student_id, score,
+CASE
+WHEN score < 20 then 'F' 
     WHEN score < 40 then 'D'
     WHEN score < 60 then 'C'
     WHEN score < 80 then 'B'
     ELSE 'A'
-  END AS grade 
-FROM Student 
+END AS grade
+FROM Result
 ORDER BY student_id;
