@@ -84,5 +84,3 @@ insert into Department value ("MATH");
 insert into Department value ("PHYSICS");
 insert into Department value ("FRENCH");
 
-b
-); 
