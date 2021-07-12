@@ -105,3 +105,11 @@ WHEN score < 20 then 'F'
 END AS grade
 FROM Result
 ORDER BY student_id;
+
+select * from Student;
+SELECT *, YEAR(CURDATE()) - YEAR(dob) AS age FROM Student;
+
+select Lecturer.firstname,Lecturer.lastname,Lecturer.contact,LecturerCourses.course_id
+from Lecturer
+INNER JOIN LecturerCourses
+ON Lecturer.id = LecturerCourses.lecturer_id;
