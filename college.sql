@@ -83,3 +83,5 @@ insert into LecturerCourses value ("FRE231","OW235");
 insert into Department value ("MATH");
 insert into Department value ("PHYSICS");
 insert into Department value ("FRENCH");
+
+b
